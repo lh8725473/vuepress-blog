@@ -1,0 +1,26 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "cnguu's blog",
+  "keywords": [
+    "cnguu",
+    "gleehub",
+    "blog"
+  ],
+  "author": "cnguu",
+  "license": "Mozilla",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lh8725473/vuepress-blog.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "deploy": "./deploy.sh"
+  },
+  "dependencies": {
+    "vuepress": "^1.1.0"
+  }
+}
