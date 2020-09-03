@@ -1,13 +1,13 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "description": "cnguu's blog",
+  "description": "liuhao's blog",
   "keywords": [
-    "cnguu",
+    "liuhao",
     "gleehub",
     "blog"
   ],
-  "author": "cnguu",
+  "author": "liuhao",
   "license": "Mozilla",
   "private": true,
   "repository": {
@@ -21,6 +21,7 @@
     "deploy": "./deploy.sh"
   },
   "dependencies": {
-    "vuepress": "^1.1.0"
+    "vuepress": "^1.1.0",
+    "vuepress-theme-yur": "^2.2.4"
   }
 }
