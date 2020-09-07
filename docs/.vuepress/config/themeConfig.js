@@ -2,14 +2,14 @@
 
 module.exports = {
   lang: 'zh-CN', // en zh-CN
-  logo: 'https://bkimg.cdn.bcebos.com/pic/2e2eb9389b504fc225700ec7efdde71191ef6dc1?x-bce-process=image/resize,m_lfit,w_150,limit_1',
-  banner: 'https://bkimg.cdn.bcebos.com/pic/2e2eb9389b504fc225700ec7efdde71191ef6dc1?x-bce-process=image/resize,m_lfit,w_150,limit_1',
+  logo: '/20171231/tiny.jpeg',
+  // banner: '/assets/img/banner.4118b53d.png',
   author: 'liuhao',
   authorLink: 'https://github.com/lh8725473/',
-  avatar: 'https://static.xmt.cn/cc50c217cbe342ce951324583f2c6139.png',
+  avatar: '/20171231/tinylogo.png',
   locales: {
     title: 'Tiny的身体，Big梦想',
-    description: '小小的我有大大的梦想',
+    description: '小小有大大的梦想',
   },
   navs: [
     {

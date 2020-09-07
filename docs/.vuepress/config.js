@@ -4,7 +4,7 @@ const themeConfig = require('./config/themeConfig')
 const plugins = require('./config/plugins')
 
 module.exports = {
-  base: '/test/',
+  base: '/haoliu.github.io/',
   head,
   evergreen: true,
   theme: 'yur',
@@ -15,7 +15,7 @@ module.exports = {
   },
   host: 'localhost',
   port: 2234,
-  dest: 'public',
+  // dest: 'public',
   extraWatchFiles: [
     '/docs/.vuepress/config.js',
   ],
