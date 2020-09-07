@@ -272,15 +272,14 @@ class MyPromise {
 ```
 
 ## 后记
-这里只是简单的实现了一个promise，对于一个完整当然还有好多没有实现的，比如：
+这里只是简单的实现了一个promise，对于一个完整promise当然还有好多没有实现的，比如：
 
 ::: tip
-promise三个状态：
 
 - Promise 类还提供了两个静态方法，直接返回状态已经固定的 promise 对象 resolve/reject 。
 - 在 Promise/A+ 规范中，有明确的规定，then 方法返回的是一个新的 promise 对象，而不是直接返回 this；
 - 如果我们在调用 then 的时候，如果没有传入任何的参数，按照规范，当前 promise 的值是可以透传到下一个 then 方法的
-- promise.all() 和 promise.race()
+- promise.all() 和 promise.race() 方法的实现
 
 :::
 
