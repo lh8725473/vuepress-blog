@@ -37,7 +37,8 @@ tags:
 :::
 
 ```js
-  // new 关键字的
+
+// new 关键字的实现
 function newF (fun) {
   return function () {
     // 创建一个临时空对象
@@ -50,6 +51,7 @@ function newF (fun) {
     return obj
   }
 }
+
 ```
 
 ## 前言
