@@ -21,6 +21,10 @@ module.exports = {
       link: '/js365/',
     },
     {
+      text: 'vue',
+      link: '/vue/',
+    },
+    {
       text: '生活兴趣',
       link: '/life/',
     },
