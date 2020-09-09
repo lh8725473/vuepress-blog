@@ -13,10 +13,6 @@ module.exports = {
   },
   navs: [
     {
-      text: '编程技术',
-      link: '/program/',
-    },
-    {
       text: 'js手写代码',
       link: '/js365/',
     },
