@@ -21,14 +21,6 @@ module.exports = {
       link: '/vue/',
     },
     {
-      text: '生活兴趣',
-      link: '/life/',
-    },
-    {
-      text: '软件工具',
-      link: '/tool/',
-    },
-    {
       text: '其它',
       link: '/other/',
     },
