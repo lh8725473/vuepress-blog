@@ -55,7 +55,7 @@ export default {
 ## 自己手写一个表单
 我们现在模仿`element-ui`的表单，自己自定义一个，文件目录如下
 
-![avatar](./images/custom-form.jpg) 
+![Form](./images/custom-form.jpg) 
 
 自定义表单`custom-form.vue`
 
