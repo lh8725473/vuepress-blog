@@ -1,12 +1,12 @@
 ---
 
-title: vu2.0中.sync与v-model
+title: vue2.0中.sync与v-model
 
 meta:
   - name: description
-    content: vu2.0中.sync与v-model
+    content: vue2.0中.sync与v-model
   - name: keywords
-    content: vu2.0中.sync与v-model
+    content: vue2.0中.sync与v-model
 
 created: 2020/04/13
 
