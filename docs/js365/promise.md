@@ -14,7 +14,6 @@ updated: 2020/3/01
 
 tags:
   - js365
-  - promise
 
 ---
 
