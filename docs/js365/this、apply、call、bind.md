@@ -18,6 +18,8 @@ tags:
 ---
 
 ## this、apply、call、bind
+https://juejin.im/post/6844903496253177863
+
 老生常谈的问题，也是 ES5中众多坑中的一个，在 ES6 中可能会极大避免 this 产生的错误，但是为了一些老代码的维护，最好还是了解一下 this 的指向和 call、apply、bind 三者的区别。
 
 ### this
@@ -114,3 +116,210 @@ tags:
 ```
 读到现在各位同学应该能够理解这是为什么了吧！~
 
+### 怎么改变this
+改变 this 的指向我总结有以下几种方法：
+
+::: tip
+
+- 使用 ES6 的箭头函数
+- 在函数内部使用 _this = this
+- 使用 apply、call、bind
+- new 实例化一个对象
+
+:::
+```js
+  var name = "windowsName";
+
+  var a = {
+    name : "Cherry",
+
+    func1: function () {
+      console.log(this.name)     
+    },
+
+    func2: function () {
+      setTimeout(  function () {
+        this.func1()
+      },100);
+    }
+
+  };
+
+  a.func2()     // this.func1 is not a function
+```
+
+在不使用箭头函数的情况下，是会报错的，因为最后调用 `setTimeout` 的对象是 window，但是在 window 中并没有 func1 函数。
+
+我们在改变 this 指向这一节将把这个例子作为 demo 进行改造。
+
+### 箭头函数
+ES6 的箭头函数是可以避免 ES5 中使用 this 的坑的。**箭头函数的 this 始终指向函数定义时的 this，而非执行时**。，箭头函数需要记着这句话：“箭头函数中没有 this 绑定，必须通过查找作用域链来决定其值，如果箭头函数被非箭头函数包含，则 this 绑定的是最近一层非箭头函数的 this，否则，this 为 undefined”。
+
+```js
+  var name = "windowsName";
+
+  var a = {
+    name : "Cherry",
+
+    func1: function () {
+      console.log(this.name)     
+    },
+
+    func2: function () {
+      setTimeout( () => {
+        this.func1()
+      },100);
+    }
+
+  };
+
+  a.func2()     // Cherry
+```
+
+### 在函数内部使用 `_this = this`
+如果不使用 ES6，那么这种方式应该是最简单的不会出错的方式了，我们是先将调用这个函数的对象保存在变量 `_this` 中，然后在函数中都使用这个 `_this`，这样 `_this` 就不会改变了。
+```js
+  var name = "windowsName";
+
+  var a = {
+
+    name : "Cherry",
+
+    func1: function () {
+      console.log(this.name)     
+    },
+
+    func2: function () {
+      var _this = this;
+      setTimeout( function() {
+        _this.func1()
+      },100);
+    }
+
+  };
+
+  a.func2()       // Cherry
+```
+这个例子中，在 func2 中，首先设置 var _this = this;，这里的 this 是调用 func2 的对象 a，为了防止在 func2 中的 setTimeout 被 window 调用而导致的在 setTimeout 中的 this 为 window。我们将 this(指向变量 a) 赋值给一个变量 _this，这样，在 func2 中我们使用 _this 就是指向对象 a 了。
+
+### 使用 apply、call、bind
+使用 apply、call、bind 函数也是可以改变 this 的指向的
+
+使用 apply
+```js
+    var a = {
+        name : "Cherry",
+
+        func1: function () {
+            console.log(this.name)
+        },
+
+        func2: function () {
+            setTimeout(  function () {
+                this.func1()
+            }.apply(a),100);
+        }
+
+    };
+
+    a.func2()            // Cherry
+```
+
+使用call
+```js
+    var a = {
+        name : "Cherry",
+
+        func1: function () {
+            console.log(this.name)
+        },
+
+        func2: function () {
+            setTimeout(  function () {
+                this.func1()
+            }.call(a),100);
+        }
+
+    };
+
+    a.func2()            // Cherry
+```
+
+使用bind
+```js
+    var a = {
+        name : "Cherry",
+
+        func1: function () {
+            console.log(this.name)
+        },
+
+        func2: function () {
+            setTimeout(  function () {
+                this.func1()
+            }.bind(a)(),100);
+        }
+
+    };
+
+    a.func2()            // Cherry
+```
+
+### apply、call、bind 区别
+刚刚我们已经介绍了 apply、call、bind 都是可以改变 this 的指向的，但是这三个函数稍有不同.
+
+`apply()` 方法调用一个函数, 其具有一个指定的this值，以及作为一个数组（或类似数组的对象）提供的参数
+
+语法`fun.apply(thisArg, [argsArray])`
+- thisArg：在 fun 函数运行时指定的 this 值。需要注意的是，指定的 this 值并不一定是该函数执行时真正的 this 值，如果这个函数处于非严格模式下，则指定为 null 或 undefined 时会自动指向全局对象（浏览器中就是window对象），同时值为原始值（数字，字符串，布尔值）的 this 会指向该原始值的自动包装对象。
+- argsArray：一个数组或者类数组对象，其中的数组元素将作为单独的参数传给 fun 函数。如果该参数的值为null 或 undefined，则表示不需要传入任何参数。从ECMAScript 5 开始可以使用类数组对象。
+
+其实 apply 和 call 基本类似，他们的区别只是传入的参数不同。
+
+call 的语法为：`fun.call(thisArg[, arg1[, arg2[, ...]]])`
+
+所以 apply 和 call 的区别是 call 方法接受的是若干个参数列表，而 apply 接收的是一个包含多个参数的数组。
+
+apply()
+```js
+    var a ={
+      name : "Cherry",
+      fn : function (a,b) {
+        console.log( a + b)
+      }
+    }
+
+    var b = a.fn;
+    b.apply(a,[1,2])     // 3
+```
+
+call()
+
+```js
+  var a ={
+    name : "Cherry",
+    fn : function (a,b) {
+      console.log( a + b)
+    }
+  }
+
+  var b = a.fn;
+  b.call(a,1,2)       // 3
+```
+
+bind 和 apply、call 区别
+
+bind()方法创建一个新的函数, 当被调用时，将其this关键字设置为提供的值，在调用新函数时，在任何提供之前提供一个给定的参数序列。
+
+所以我们可以看出，bind 是创建一个新的函数，我们必须要手动去调用：
+```js
+  var a ={
+    name : "Cherry",
+    fn : function (a,b) {
+      console.log( a + b)
+    }
+  }
+
+  var b = a.fn;
+  b.bind(a,1,2)()           // 3
+```
