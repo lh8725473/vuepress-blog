@@ -17,6 +17,10 @@ module.exports = {
       link: '/js365/',
     },
     {
+      text: 'css',
+      link: '/css/',
+    },
+    {
       text: 'vue',
       link: '/vue/',
     },
