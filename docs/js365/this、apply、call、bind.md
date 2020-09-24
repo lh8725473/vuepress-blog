@@ -18,7 +18,6 @@ tags:
 ---
 
 ## this、apply、call、bind
-https://juejin.im/post/6844903496253177863
 
 老生常谈的问题，也是 ES5中众多坑中的一个，在 ES6 中可能会极大避免 this 产生的错误，但是为了一些老代码的维护，最好还是了解一下 this 的指向和 call、apply、bind 三者的区别。
 
