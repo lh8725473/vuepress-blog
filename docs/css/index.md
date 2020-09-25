@@ -1,11 +1,11 @@
 ---
 
-title: js365
+title: css
 
 meta:
   - name: description
-    content: js手写代码
+    content: css
   - name: keywords
-    content: js365
+    content: css
 
 ---
