@@ -25,6 +25,10 @@ module.exports = {
       link: '/vue/',
     },
     {
+      text: '开发日常',
+      link: '/developDaily/',
+    },
+    {
       text: '其它',
       link: '/other/',
     },
