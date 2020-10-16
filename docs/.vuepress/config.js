@@ -4,7 +4,7 @@ const themeConfig = require('./config/themeConfig')
 const plugins = require('./config/plugins')
 
 module.exports = {
-  base: '/haoliu.github.io/',
+  base: '/tiny-blog/',
   head,
   evergreen: true,
   theme: 'yur',

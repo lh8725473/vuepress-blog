@@ -29,8 +29,8 @@ module.exports = {
       link: '/developDaily/',
     },
     {
-      text: '其它',
-      link: '/other/',
+      text: '计算机基础',
+      link: '/dataStructuresAndAlgorithms/',
     },
   ],
   nameplate: {
