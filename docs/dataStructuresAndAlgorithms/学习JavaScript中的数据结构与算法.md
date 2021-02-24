@@ -17,4 +17,7 @@ tags:
   - 算法
 
 ---
-### 数组
+https://juejin.im/post/6844903919722692621 
+
+## 重学数据结构与算法(typescript版本)
+https://github.com/lh8725473/Learn_data_structure

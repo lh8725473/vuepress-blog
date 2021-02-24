@@ -29,6 +29,10 @@ module.exports = {
       link: '/developDaily/',
     },
     {
+      text: '算法',
+      link: '/arithmetic/',
+    },
+    {
       text: '计算机基础',
       link: '/dataStructuresAndAlgorithms/',
     },
