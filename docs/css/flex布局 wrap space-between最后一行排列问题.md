@@ -121,7 +121,9 @@ data(){
   <div class="item" v-for="item in len" :key="item">
     列表{{item}}
   </div>
-  <div class="item-completion" v-for="item in (row - len % row)" :key="item" v-if="completion"></div>
+  <template v-if="completion">
+    <div class="item-completion" v-for="item in (row - len % row)" :key="item"></div>
+  </template>  
 </div>
 
 data(){

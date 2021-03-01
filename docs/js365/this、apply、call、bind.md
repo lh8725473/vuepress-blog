@@ -85,8 +85,7 @@ tags:
 ```js
   var name = "windowsName";
   var a = {
-    name : null,
-    // name: "Cherry",
+    name: "Cherry",
     fn : function () {
       console.log(this.name);      // windowsName
     }
