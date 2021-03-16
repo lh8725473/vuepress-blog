@@ -57,7 +57,7 @@ console.log('arr.__proto__', arr.__proto__);
 console.log('fn.__proto__', fn.__proto__);
 ```
 
-![prototype1](./images/prototype1.png) 
+![prototype1](./images/prototype1.jpg) 
 
 ###  __proto__ 和 prototype
 引用类型，隐式原型 __proto__ 的属性值指向它的构造函数的显式原型 prototype 属性值：

@@ -22,7 +22,7 @@ tags:
 我们都知道js中的代码分 `同步` 和 `异步`，所谓的 `异步` 其实就是不会阻塞我们的主线程，等待主线程的代码执行完毕才会执行。`callback setTimeout setInterval Promise ...` 这些都是都是我们耳熟能详的 `异步` 代码
 
 
-![eventloop1](./images/eventloop1) 
+![eventloop1](./images/eventloop1.png) 
 
 js中的内存分为 堆内存(heap) 和 栈内存(stack), 堆内存 中存的是我们声明的object类型的数据，栈内存 中存的是 基本数据类型 以及 函数执行时的运行空间。我们的 同步 代码就放在 执行栈 中，那异步代码呢？浏览器会将 dom事件 ajax setTimeout等异步代码放到队列中，等待执行栈中的代码都执行完毕，才会执行队列中的代码，是不是有点像发布订阅模式。
 
