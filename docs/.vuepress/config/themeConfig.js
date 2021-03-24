@@ -13,6 +13,10 @@ module.exports = {
   },
   navs: [
     {
+      text: 'JavaScript核心',
+      link: '/JavaScriptCore/',
+    },
+    {
       text: 'js手写代码',
       link: '/js365/',
     },
